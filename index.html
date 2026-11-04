@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DersNot Gizlilik Politikası</title>
+<style>
+  :root { --bg: #ffffff; --fg: #1d2330; --muted: #5b6577; --line: #e3e7ee; --accent: #2860dd; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #12161f; --fg: #e7ebf2; --muted: #a1abbd; --line: #2a3140; --accent: #7aa5ff; } }
+  body { background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; margin: 0; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 1.7rem; margin: 0 0 4px; }
+  h2 { font-size: 1.2rem; margin: 32px 0 8px; }
+  p, li { color: var(--fg); }
+  .meta { color: var(--muted); margin: 0 0 16px; }
+  .lang { display: flex; gap: 12px; margin: 0 0 24px; }
+  a { color: var(--accent); }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0; }
+  ul { padding-left: 22px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="lang"><a href="#tr">Türkçe</a><a href="#en">English</a><a href="destek/">Destek / Support</a></nav>
+
+<section id="tr" lang="tr">
+<h1>DersNot Gizlilik Politikası</h1>
+<p class="meta">Yürürlük tarihi: 4 Kasım 2026 · Geliştirici: MarkToCard Studio · İletişim: <a href="mailto:feedbackwordtocard@gmail.com">feedbackwordtocard@gmail.com</a></p>
+
+<p>DersNot, ders kayıtlarını ders PDF'leriyle eşleştiren bir not uygulamasıdır (Android, iPhone ve iPad). Uygulama cihazında çalışır. Bizim bir sunucumuz yok, hesap açtırmayız ve verini toplamayız. Bu sayfa hangi verinin nerede durduğunu ve hangi durumlarda cihazından çıktığını anlatır.</p>
+
+<h2>Cihazında duran veriler</h2>
+<p>Ses kayıtların, transkriptler, PDF'ler ve çevrilen dosyalar, kalem notların, eşleşmeler ve ayarların uygulamanın cihazdaki özel alanında saklanır. Bunlar bize gönderilmez. Yazıya dökme, eşleştirme, metin tanıma (OCR) ve el yazısı tanıma cihazında yapılır.</p>
+
+<h2>İzinler</h2>
+<ul>
+  <li><b>Mikrofon:</b> yalnız sen kayıt başlattığında, ders kaydı için.</li>
+  <li><b>Bildirimler:</b> kayıt, dinleme ve yazıya dökme sürerken bildirim göstermek için.</li>
+  <li><b>İnternet:</b> ses modelini indirmek ve açarsan aşağıdaki isteğe bağlı Gemini özellikleri için.</li>
+  <li><b>Arka planda çalışma:</b> ekran kapalıyken kaydın, dinlemenin ve yazıya dökmenin sürmesi için (Android'de ön plan hizmeti ve uyanık tutma, iOS'ta arka planda ses).</li>
+</ul>
+<p>iPhone ve iPad'de DersNot fotoğraf ve müzik arşivine erişmez; dosyalar Dosyalar uygulamasından seçilir.</p>
+
+<h2>İndirmeler</h2>
+<p>Yazıya dökme için ses modeli ilk kullanımda Hugging Face'ten (huggingface.co) indirilir. El yazısı tanıma modeli Google'dan indirilir. Her indirmede olduğu gibi, indirme yapılan sunucu cihazının IP adresini görür. Bu indirmelerde ses, not ya da belge gönderilmez.</p>
+
+<h2>Google ML Kit</h2>
+<p>Metin tanıma ve el yazısı tanıma için Google ML Kit kullanılır. ML Kit cihazında çalışır ve içeriğini göndermez. Google, ML Kit'in çalışmasını izlemek için Google'a tanılama bilgisi gönderebilir: cihaz modeli, işletim sistemi sürümü, uygulama sürümü, performans ölçüleri, hata kodları ve kuruluma özgü bir tanımlayıcı. Ayrıntı: ML Kit veri açıklaması (<a href="https://developers.google.com/ml-kit/android-data-disclosure">Android</a>, <a href="https://developers.google.com/ml-kit/ios-data-disclosure">iOS</a>), <a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a>.</p>
+
+<h2>İsteğe bağlı: kendi Gemini anahtarınla</h2>
+<p>Bu özellikler varsayılan olarak kapalıdır. Ayarlar'da kendi Google Gemini API anahtarını girip açtığın her özellik için, yalnız o özelliğin verisi doğrudan cihazından Google'ın Gemini API'sine gönderilir:</p>
+<ul>
+  <li><b>Bulutta yazıya dökme:</b> ders kaydının sesi. Açmadan önce bir kez onayın istenir.</li>
+  <li><b>Eşleştirme ve terim önerileri:</b> transkript metni ve ilgili PDF sayfalarının metni.</li>
+  <li><b>Çıkmış soru eşleştirme:</b> soru metinleri ve aday slayt sayfalarının metni.</li>
+  <li><b>Ek notları özetleme:</b> ilgili transkript parçası ve sayfanın metni.</li>
+</ul>
+<p>Kalem notların, sayfa notların ve PDF dosyalarının kendisi gönderilmez. Bu gönderimler senin Google hesabınla Google arasındadır; biz bu veriyi görmeyiz. Google'ın <a href="https://ai.google.dev/gemini-api/terms">Gemini API Ek Hizmet Şartları</a> geçerlidir. Ücretsiz katmanda Google içeriği ürünlerini geliştirmek için kullanabilir. API anahtarın yalnız cihazının güvenli deposunda durur (Android'de Keystore, iOS'ta Anahtar Zinciri); DersNot'un yedeğine, dışa aktarmaya ve günlüklere girmez. Anahtarı silince bu özellikler kapanır.</p>
+
+<h2>"Sor…" menüsü ve paylaşma</h2>
+<p>Seçtiğin bir metni "Sor…" ile Google aramasına, çeviriye, tarayıcıya ya da bir yapay zekâ uygulamasına verebilirsin. Notlu PDF'i, sesi ya da yedeği de paylaşabilirsin. Bunlar yalnız senin dokunuşunla olur. Veri, seçtiğin uygulamaya ya da siteye gider ve onun gizlilik politikası geçerli olur.</p>
+
+<h2>Yedekler</h2>
+<p>Yedek (.zip) yalnız senin seçtiğin yere kaydedilir. Otomatik yedek de senin seçtiğin klasöre gider. Bu klasör bir bulut klasörüyse (ör. Google Drive, iCloud Drive) o hizmetin şartları geçerlidir. Cihazın kendi yedeği de cihaz ayarlarına göre uygulama verisini yedekleyebilir: Android'de Google hesabına (Gemini anahtarı bu yedeğe girmez), iPhone ve iPad'de iCloud'a ya da bilgisayara (Apple'ın şifreli yedeği).</p>
+
+<h2>Reklam, analiz ve izleme</h2>
+<p>DersNot'ta reklam, reklam kimliği, analiz ya da izleme aracı yok. Uygulama içi satın alma yok.</p>
+
+<h2>Çocuklar</h2>
+<p>DersNot üniversite ve lise öğrencileri için yapılmıştır. 13 yaşından küçük çocuklara yönelik değildir.</p>
+
+<h2>Verilerini silmek</h2>
+<p>Ders, belge ve kayıtları uygulamada silebilirsin. Son silinenler 30 gün sonra kendiliğinden silinir. Uygulamayı kaldırınca cihazdaki DersNot verisi silinir. iPhone ve iPad'de Gemini anahtarı Anahtar Zinciri'nde kalabilir; kaldırmadan önce Ayarlar'dan silebilirsin. Bizde senin verin olmadığı için ayrıca silme talebi gerekmez. Gemini'ye gönderilen veri için Google'ın kendi ayarları ve şartları geçerlidir.</p>
+
+<h2>Güvenlik</h2>
+<p>Veriler uygulamanın cihazdaki özel alanındadır ve başka uygulamalar onlara erişemez. İnternet bağlantıları HTTPS ile şifrelenir.</p>
+
+<h2>Değişiklikler ve iletişim</h2>
+<p>Bu politika değişirse yeni sürümü bu sayfada yürürlük tarihiyle yayımlarız. Sorular için: <a href="mailto:feedbackwordtocard@gmail.com">feedbackwordtocard@gmail.com</a>.</p>
+</section>
+
+<hr>
+
+<section id="en" lang="en">
+<h1>DersNot Privacy Policy</h1>
+<p class="meta">Effective date: November 4, 2026 · Developer: MarkToCard Studio · Contact: <a href="mailto:feedbackwordtocard@gmail.com">feedbackwordtocard@gmail.com</a></p>
+
+<p>DersNot is a note-taking app that matches lecture recordings to lecture PDFs (Android, iPhone and iPad). The app runs on your device. We have no servers, we don't ask you to create an account, and we don't collect your data. This page explains where your data stays and when it leaves your device.</p>
+
+<h2>Data that stays on your device</h2>
+<p>Your recordings, transcripts, PDFs and converted files, pen notes, matches and settings are stored in the app's private storage on your device. They are not sent to us. Transcription, matching, text recognition (OCR) and handwriting recognition run on your device.</p>
+
+<h2>Permissions</h2>
+<ul>
+  <li><b>Microphone:</b> only when you start a recording, to record the lecture.</li>
+  <li><b>Notifications:</b> to show a notification while recording, playing back or transcribing.</li>
+  <li><b>Internet:</b> to download the speech model and, if you turn them on, for the optional Gemini features below.</li>
+  <li><b>Running in the background:</b> so that recording, playback and transcription continue with the screen off (a foreground service and wake lock on Android, background audio on iOS).</li>
+</ul>
+<p>On iPhone and iPad, DersNot does not access your photo or music library; files are picked from the Files app.</p>
+
+<h2>Downloads</h2>
+<p>The speech model for transcription is downloaded from Hugging Face (huggingface.co) on first use. The handwriting recognition model is downloaded from Google. As with any download, the server sees your device's IP address. No audio, notes or documents are sent in these downloads.</p>
+
+<h2>Google ML Kit</h2>
+<p>DersNot uses Google ML Kit for text recognition and handwriting recognition. ML Kit runs on your device and does not send your content. ML Kit may send Google diagnostic information to monitor how it works: device model, operating system version, app version, performance metrics, error codes and a per-installation identifier. Details: ML Kit data disclosure (<a href="https://developers.google.com/ml-kit/android-data-disclosure">Android</a>, <a href="https://developers.google.com/ml-kit/ios-data-disclosure">iOS</a>), <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+
+<h2>Optional: with your own Gemini key</h2>
+<p>These features are off by default. If you enter your own Google Gemini API key in Settings, each feature you turn on sends only its own data directly from your device to Google's Gemini API:</p>
+<ul>
+  <li><b>Cloud transcription:</b> the lecture audio. You are asked to confirm once before it is turned on.</li>
+  <li><b>Matching and term suggestions:</b> transcript text and the text of related PDF pages.</li>
+  <li><b>Past exam question matching:</b> question text and the text of candidate slide pages.</li>
+  <li><b>Summarizing extra notes:</b> the related transcript excerpt and the page text.</li>
+</ul>
+<p>Your pen notes, page notes and the PDF files themselves are never sent. These transfers are between your Google account and Google; we never see this data. Google's <a href="https://ai.google.dev/gemini-api/terms">Gemini API Additional Terms of Service</a> apply. On the free tier, Google may use the content to improve its products. Your API key is stored only in your device's secure storage (Keystore on Android, Keychain on iOS) and is excluded from DersNot's backups, exports and logs. Deleting the key turns these features off.</p>
+
+<h2>"Ask…" menu and sharing</h2>
+<p>You can pass selected text with "Ask…" to Google Search, Translate, a browser or an AI app, and you can share an annotated PDF, audio or a backup. This happens only when you tap it. The data goes to the app or site you choose, and its privacy policy applies.</p>
+
+<h2>Backups</h2>
+<p>A backup (.zip) is saved only where you choose. Automatic backup also goes to a folder you choose. If that folder is a cloud folder (for example Google Drive or iCloud Drive), that service's terms apply. Your device's own backup may also back up app data depending on your device settings: to your Google account on Android (the Gemini key is excluded), and to iCloud or a computer on iPhone and iPad (Apple's encrypted backup).</p>
+
+<h2>Ads, analytics and tracking</h2>
+<p>DersNot has no ads, no advertising ID, and no analytics or tracking tools. There are no in-app purchases.</p>
+
+<h2>Children</h2>
+<p>DersNot is made for university and high school students. It is not directed at children under 13.</p>
+
+<h2>Deleting your data</h2>
+<p>You can delete courses, documents and recordings in the app. Recently deleted items are removed automatically after 30 days. Uninstalling the app deletes the DersNot data on the device. On iPhone and iPad the Gemini key may remain in the Keychain; you can delete it in Settings before uninstalling. Since we hold none of your data, no separate deletion request is needed. For data sent to Gemini, Google's own settings and terms apply.</p>
+
+<h2>Security</h2>
+<p>Data is kept in the app's private storage on your device, which other apps cannot access. Internet connections are encrypted with HTTPS.</p>
+
+<h2>Changes and contact</h2>
+<p>If this policy changes, we will publish the new version on this page with its effective date. Questions: <a href="mailto:feedbackwordtocard@gmail.com">feedbackwordtocard@gmail.com</a>.</p>
+</section>
+</main>
+</body>
+</html>
